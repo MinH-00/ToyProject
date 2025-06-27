@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.example.toyproject.Entity.User;
 import org.example.toyproject.Service.UserService;
-import org.example.toyproject.dto.UserJoinRequest;
+import org.example.toyproject.dto.UserRegisterRequest;
 import org.example.toyproject.dto.UserLoginRequest;
 import org.example.toyproject.dto.UserLoginResponse;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody UserJoinRequest request) {
+    public ResponseEntity<?> register(@RequestBody UserRegisterRequest request) {
         userService.register(request);
         return ResponseEntity.ok("회원가입 성공");
     }

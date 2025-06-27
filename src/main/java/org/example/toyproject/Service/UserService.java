@@ -3,7 +3,7 @@ package org.example.toyproject.Service;
 import lombok.RequiredArgsConstructor;
 import org.example.toyproject.Entity.User;
 import org.example.toyproject.Repository.UserRepository;
-import org.example.toyproject.dto.UserJoinRequest;
+import org.example.toyproject.dto.UserRegisterRequest;
 import org.example.toyproject.dto.UserLoginRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public void register(UserJoinRequest request) {
+    public void register(UserRegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("이미 사용 중인 이메일입니다.");
         }
